@@ -1,0 +1,195 @@
+<!-- BANNER PROMO -->
+<!-- remove class flash on #navbar if no banner %> -->
+<%# if landing_page? %>
+<!--   <div class="hidden-xs">
+    <div class="container-fluid" id="banner-promo">
+      <%#=link_to "http://www.kisskissbankbank.com/fr/projects/cforgood-la-revolution-positive", target: "_blank" do %>
+        <div class="row text-center">
+          <span>Financez la 1ère <strong>plateforme d'économie responsable et solidaire</strong> qui redonne le pouvoir d'agir et consommer dans le Bon Sens !</span>
+          <i class="fa fa-chevron-circle-right"></i>
+        </div>
+      <%# end %>
+    </div>
+  </div> -->
+<%# end %>
+<!-- <div class="mobile-hidden"> -->
+
+  <nav id="navbar" class="navbar nav <%= navbar_classes %>" role="navigation">
+    <!-- ICON RESPONSIVE MENU -->
+    <a href="#" class="menu-toggle">
+      <div id="menu-icon">
+        <span id="icon-line"></span>
+        <span id="icon-line"></span>
+        <span id="icon-line"></span>
+        <span id="icon-line"></span>
+      </div>
+    </a>
+    <!-- BRAND LOGO -->
+    <!-- LOGO -->
+    <% if user_signed_in? %>
+      <%= link_to member_user_dashboard_path(current_user) do %>
+        <div class="logo-desktop">
+          <%= render "components/svg/logo" %>
+        </div>
+      <% end %>
+    <% elsif business_signed_in? %>
+      <%= link_to pro_business_dashboard_path(current_business) do %>
+        <div class="logo-desktop">
+          <%= render "components/svg/logo" %>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to root_path do %>
+        <div class="logo-desktop">
+          <%= render "components/svg/logo" %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <!-- MENU ITEMS -->
+    <% if business_signed_in? && pro_space? && current_business.supervisor %>
+      <%= render "components/select_impersonate_business", dropdown_search: "navbar_select_impersonate" %>
+      <% if current_impersonation %>
+        <div class="current-impersonation">
+          Vous agissez en tant que <%= current_impersonation.name %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <!-- MENU ITEMS -->
+    <div class="link-container">
+      <!-- PRO SIGN IN -->
+      <% if business_signed_in? && pro_space? %>
+        <div class="visible-xs menu-user-info">
+          <% if current_business.picture.present? %>
+            <%= image_tag avatar_url(current_business), class: "user-pic" %>
+          <% else %>
+            <%= image_tag "default_pic.png", class: "image-circle" %>
+          <% end %>
+          <span class="user-name">
+            Bienvenue,<br> <%= current_business.name %>
+          </span>
+        </div>
+        <ul>
+          <li class="visible-xs">
+            <%= link_to landing_business_path do %>
+              <i class="fa fa-home"></i> <%= t(".how_it_works", default: "Accueil") %>
+            <% end %>
+          </li>
+          <li class="faq-connect">
+            <%= link_to faq_connect_path do %>
+              <i class="fa fa-dot-circle-o"></i> <%= t(".how_it_works", default: "Aide et conseils") %>
+            <% end %>
+          </li>
+          <li class="hidden-xs">
+            <% if current_business.active %>
+              <%= link_to pro_business_profile_path(current_business) do %>
+                <% if current_business.picture.present? %>
+                  <%= image_tag avatar_url(current_business), class: "img-circle", type: "button" %>
+                <% else %>
+                  <%= image_tag "default_pic.png", class: "img-circle", type: "button"  %>
+                <% end %>
+                <span class="user-name"><%= current_business.name %></span>
+              <% end %>
+            <% else %>
+              <%= link_to pro_business_dashboard_path(current_business) do %>
+                <% if current_business.picture.present? %>
+                  <%= image_tag avatar_url(current_business), class: "img-circle", type: "button" %>
+                <% else %>
+                  <%= image_tag "default_pic.png", class: "img-circle", type: "button"  %>
+                <% end %>
+                <span class="user-name"><%= current_business.name %></span>
+              <% end %>
+            <% end%>
+          </li>
+        </ul>
+      <!-- USER SIGN IN -->
+      <% else %>
+        <% if user_signed_in? && user_space? %>
+          <div class="visible-xs menu-user-info">
+            <% if current_user.picture.present? %>
+              <%= image_tag avatar_url(current_user), class: "user-pic" %>
+            <% else %>
+              <%= image_tag "default_pic.png", class: "img-circle" %>
+            <% end %>
+            <span class="user-name">
+              <% if current_user.last_name != "" && current_user.last_name != nil %>
+                Bienvenue,<br> <%= current_user.first_name %> <%= current_user.last_name.chars.first + "." %>
+              <% elsif current_user.name != "" && current_user.name != nil %>
+                Bienvenue,<br> <%= current_user.name.split(" ")[0] %>
+              <% end %>
+            </span>
+          </div>
+          <ul>
+            <li class="visible-xs">
+              <%= link_to root_path do %>
+                <i class="fa fa-home"></i> <%= t(".how_it_works", default: "Accueil") %>
+              <% end %>
+            </li>
+            <!-- <li> -->
+              <%#= link_to faq_connect_path do %>
+                <!-- <i class="fa fa-dot-circle-o"></i> <%#= t(".how_it_works", default: "Aide et conseils") %> -->
+              <%# end %>
+            <!-- </li> -->
+            <li class="user-profile-navbar mobile-dropdown">
+              <% if current_user.active %>
+                <a href="#">
+                  <% if current_user.picture.present? %>
+                    <%= image_tag avatar_url(current_user), class: "img-circle" %>
+                  <% else %>
+                    <%= image_tag "default_pic.png", class: "img-circle" %>
+                  <% end %>
+                  <i class="fa fa-angle-down"></i>
+                </a>
+                <!-- DESKTOP | OPEN MENU DROPDOWN -->
+                <% if device_type != :mobile %>
+                  <%= render "components/navbar_dropdown_profile" %>
+                <% end %>
+              <% else %>
+                <%= link_to member_user_dashboard_path(current_user) do %>
+                  <% if current_user.picture.present? %>
+                    <%= image_tag avatar_url(current_user), class: "img-circle" %>
+                  <% else %>
+                    <%= image_tag "default_pic.png", class: "img-circle" %>
+                  <% end %>
+                    <% if current_user.last_name != "" && current_user.last_name != nil %>
+                      <span class="user-name"><%= current_user.first_name %> <%= current_user.last_name.chars.first + "." %></span>
+                    <% elsif current_user.name != "" && current_user.name != nil %>
+                      <span class="user-name"><%= current_user.name.split(" ")[0]  %></span>
+                    <% end %>
+                <% end %>
+              <% end %>
+            </li>
+          </ul>
+        <!-- USER SIGN OUT -->
+        <% else %>
+          <ul>
+            <% if asso_space? %>
+              <li>
+                <a href="https://cforgood1.typeform.com/to/PdisGd" data-mode="1" target="_blank">Devenir Partenaire</a>
+              </li>
+            <% elsif user_space? %>
+              <li>
+                <%= link_to t(".inscription", default: "Inscription"), signup_path %>
+              </li>
+              <li>
+                <%= link_to t(".connexion", default: "Connexion"), signin_path %>
+              </li>
+              <!-- <li>
+                <#= link_to t(".espace_pro", default: "Espace Partenaire"), landing_business_path #>
+              </li> -->
+            <% else %>
+              <li>
+                <%= link_to t(".inscription", default: "Inscription"), signup_path %>
+              </li>
+              <li>
+                <%= link_to t(".connexion", default: "Connexion"), signin_path %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      <% end %>
+    </div>
+  </nav>
+
+<!-- </div> -->

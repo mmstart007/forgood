@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render "layouts/shared/head" %>
+  </head>
+
+  <body>
+
+    <% if signup_or_signin_page? %>
+      <%= render "layouts/shared/navbar_logout" %>
+    <% else %>
+      <div class="mobile-hidden">
+        <%= render "layouts/shared/navbar" %>
+      </div>
+    <% end %>
+
+    <div id="menu-overlay">
+      <%= yield %>
+    </div>
+    <%= render "layouts/shared/js" %>
+    <%= yield(:after_js) %>
+  </body>
+</html>

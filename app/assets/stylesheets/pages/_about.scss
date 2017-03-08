@@ -1,0 +1,81 @@
+.section-subtitle {
+  margin-top: -20px;
+  margin-bottom: 50px;
+}
+
+#btn-write-us {
+  margin-bottom: 5%;
+}
+
+@media only screen and (max-width: 480px) and (orientation : portrait) {
+  #cforgood-background {
+      height: 160px;
+    }
+  #bg-about {
+    h2 {
+      font-size: 23px;
+    }
+    }
+  #page-title-mobile {
+    margin-top: 50px;
+    h3 {
+      font-size: 24px;
+      margin-top: 0px;
+    }
+    h1 {
+      font-size: 32px;
+    }
+  }
+  #write-us-about h2 {
+        font-size: 24px;
+  }
+
+  #video-about {
+    margin-left: -1%;
+    margin-bottom: 5%;
+    iframe {
+      width: 110%;
+      margin-left: -5%;
+    }
+  }
+  #nomobile {
+      display: none;
+    }
+}
+
+/* default styles here for older browsers.
+      I tend to go for a 600px - 960px width max but using percentages
+   */
+   @media only screen and (max-width:960px){
+       /* styles for browsers larger than 960px; */
+       #video-about {
+        margin-left: -1%;
+      }
+   }
+   @media only screen and (min-width:1440px){
+       /* styles for browsers larger than 1440px; */
+   }
+   @media only screen and (min-width:2000px){
+       /* for sumo sized (mac) screens */
+   }
+   @media only screen and (max-device-width:480px){
+      /* styles for mobile browsers smaller than 480px; (iPhone) */
+   }
+   @media only screen and (max-width:768px){
+      /* default iPad screens */
+      #video-about {
+        margin-left: -1%;
+        iframe {
+          margin-left: -2.5%;
+          width: 105%;
+        }
+      }
+   }
+   /* different techniques for iPad screening */
+   @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+     /* For portrait layouts only */
+   }
+
+   @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+     /* For landscape layouts only */
+    }

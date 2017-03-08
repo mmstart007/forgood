@@ -1,0 +1,415 @@
+.problem,
+.presentation-business,
+.process,
+.benefits,
+.sponsoring,
+.categories,
+.ecosysteme,
+.ambassadors,
+.supporters,
+#faq {
+  position: relative;
+  text-align: center;
+  border-top: 1px #f1f1f1 solid;
+}
+// SECTION - PROBLEM
+//***************************************************************************//
+.problem { background-color: $section-light; }
+
+// SECTION - PRESENTATION
+//***************************************************************************//
+#presentation-business, #presentation-cause {
+  p {
+    line-height: 1.8em;
+  }
+}
+
+// SECTION - MOCKUPS
+//***************************************************************************//
+
+#first-mockup, #second-mockup, #third-mockup {
+  .screenshot-picture img {
+    height: 75%;
+    width: 75%;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+    @media only screen and (max-width: 768px){ height: 100%;  width: 100%; }
+  }
+
+  h3 {
+    @media only screen and (max-width: 768px){ text-align: center; }
+  }
+  .screenshot-legend p {
+    margin: 10px 0;
+    @media only screen and (max-width: 768px){
+      text-align: center;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+
+  .screenshot-list {
+    @media only screen and (max-width: 768px){ padding-left: 130px; }
+    @media only screen and (max-width: 480px){ padding-left: 15px; }
+  }
+
+  strong {
+    font-weight: 500;
+  }
+}
+
+#first-mockup, #third-mockup {
+  .screenshot-picture img {
+    margin-left: 20%;
+    @media only screen and (max-width: 768px){ margin-left: 0px; }
+  }
+
+  .screenshot-legend {
+    padding-left: 30px;
+  }
+
+  .screenshot-list p {
+    margin-left: 50px;
+    @media only screen and (max-width: 768px){
+      text-align: left;
+      padding-top: 8px;
+    }
+  }
+}
+
+#second-mockup {
+  background-color: #f9f9f9;
+
+  .screenshot-picture img {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 20%;
+
+    @media only screen and (max-width: 768px){
+      margin-right: 0px;
+      margin-bottom: 0px;
+    }
+  }
+
+  .screenshot-legend {
+    text-align: right;
+    padding-right: 40px;
+    margin-top: 70px;
+
+    @media only screen and (max-width: 768px){
+      text-align: left;
+      margin-top: 0;
+    }
+  }
+
+  ul {
+    @media only screen and (max-width: 768px){ padding-left: 5px; }
+  }
+
+  .screenshot-list {
+    padding-right: 30px;
+    @media only screen and (max-width: 768px){ margin-bottom: 40px; }
+    @media only screen and (max-width: 480px){ margin-bottom: 0; }
+
+    p {
+      margin-right: 10px;
+
+      @media only screen and (max-width: 768px){
+        text-align: left;
+        margin-left: 50px;
+        padding-top: 0;
+      }
+    }
+  }
+
+  h3 {
+    color: #36d3da;
+    @media only screen and (max-width: 768px){ margin-top: 35px; }
+  }
+}
+
+#first-mockup {
+  margin-bottom: 50px;
+  @media only screen and (max-width: 480px){ margin-bottom: 0; }
+
+  h3 {
+    color: #00C9FF;
+    @media only screen and (max-width: 768px){ margin-top: 35px; }
+  }
+
+  .screenshot-legend p {
+    @media only screen and (max-width: 768px){ padding-top: 0; }
+  }
+}
+
+#third-mockup {
+  margin-top: 50px;
+
+  h3 {
+    color: #80F2A4;
+  }
+
+  .screenshot-legend {
+    padding-left: 30px;
+    margin-top: 30px;
+    @media only screen and (max-width: 768px){ margin-top: 15px; }
+  }
+}
+
+.screenshot-list {
+  p {
+    font-size: 1.5rem;
+    font-weight: 200;
+    padding-top: 8px;
+  }
+
+  li {
+    list-style: none;
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+
+  i img {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+  }
+
+  .fa {
+    position: absolute;
+    color: white;
+    background-color: #00C9FF;
+    text-align: center;
+    padding-top: 7px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-size: 25px;
+  }
+}
+
+// SECTION - BENEFITS
+//***************************************************************************//
+
+.benefits {
+  position: relative;
+  background-color: $turquoise;
+  img {
+    height: 60px;
+    margin-bottom: 15px;
+  }
+  h2, h3, p, li {
+    color: $white;
+  }
+  strong {
+    margin-bottom: 20px;
+    color: rgb(108, 203, 253);
+  }
+  .blackbox {
+    position: absolute;
+    margin-top: -75px;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    opacity: 0.3;
+    background-color: rgb(0,0,0);
+  }
+  .item-benefit {
+    display: flex;
+    height: 250px;
+    padding: 5px;
+    margin-bottom: 25px;
+    @media only screen and (max-width: 768px){ margin-bottom: 70px; }
+    @media only screen and (max-width: 480px){ margin-bottom: 0; }
+
+  .title-benefit {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgb(108, 203, 253);
+    margin-bottom: 20px;
+  }
+
+    span {
+      color: #fff;
+    }
+  }
+}
+#business-page {
+  h2 {
+    color: rgb(51,51,51);
+    font-weight: 400;
+  }
+}
+#item-business-problem {
+  img {
+    height: 140px;
+    padding-left: 25px;
+  }
+  h3 {
+    color: rgb(51,51,51);
+    font-size: 22px;
+    font-weight: 400;
+  }
+  h4 {
+    color: rgb(51,51,51);
+  }
+}
+#business-solution {
+  border-top: 1px rgba(216,227,225,0.23) solid;
+  border-bottom: 1px rgba(216,227,225,0.23) solid;
+  h2 {
+    color: white;
+    font-weight: 400;
+  }
+}
+.bg-business-benefits {
+  position: relative;
+  background-image: image-url("bg-business-benefits.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 1500px;
+}
+#whitebox-business-benefits {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  color: rgb(51,51,51);
+  z-index: 1;
+}
+#business-benefit {
+  height: 265px;
+  border-bottom: 2px rgba(181, 181, 181, 0.23) solid;
+  padding-top: 45px;
+  img {
+    height: 165px;
+    float: left;
+  }
+  h3 {
+    color: rgb(51,51,51);
+  }
+}
+
+.testimonials {
+  background-color: #fff;
+  text-align: center;
+
+  .testimonial-item {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    width: 250px;
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+
+    &:before {
+      position: absolute;
+      content: ' ';
+      left: 0;
+      bottom: 24px;
+      border: 10px solid white;
+      border-color: transparent transparent transparent $turquoise;
+    }
+  }
+
+  .testimonial-user {
+    display: flex;
+    vertical-align: middle;
+
+    img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      margin-left: 6%;
+    }
+  }
+
+  .testimonial-name {
+    padding-top: 5px;
+    padding-left: 15px;
+    font-size: 14px;
+
+    p {
+      line-height: 16px;
+      margin-bottom: 0;
+    }
+
+    span {
+      opacity: .7;
+      font-weight: 100;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) and (orientation : portrait) {
+  #business-page {
+    h1 {
+      font-size: 30px;
+    }
+    #cforgood-background {
+      height: 160px;
+      h3 {
+        font-size: 24px;
+      }
+    }
+    #business-problem {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      h2 {
+        font-size: 22px;
+      }
+      #title-business-problem {
+        margin-bottom: 30px;
+      }
+      #item-business-problem {
+        margin-bottom: 30px;
+      }
+  }
+  #business-benefits {
+    height: 2450px;
+    h3 {
+        font-size: 24px;
+      }
+  }
+  #business-benefit {
+    border: transparent;
+  }
+  #item-business-benefit {
+      padding-bottom: 50px;
+      padding-right: 0px;
+      padding-left: 0px;
+      text-align: center;
+  }
+  }
+  #icon-business-benefit {
+    margin-left: 25% !important;
+    padding-left: 0px;
+  }
+  #write-us-business {
+    padding-top: 0px;
+  }
+  #nomobile {
+      display: none;
+    }
+}
+@media only screen and (min-width: 480px) and (orientation : portrait) {
+  #nodesktop {
+      display: none;
+    }
+}
+
+
+// SPECIAL - LANDING CAUSE
+//***************************************************************************//
+.mockup-cause {
+  .discover, .localise, .enjoy {
+    img {
+      width: 50%;
+      height: 50%
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<!-- Nav pills -->
+<div class="col-xs-12 col-sm-4" id="menu-footer-legal">
+  <ul id="menu" class="nav nav-pills nav-stacked">
+    <% if request.env['PATH_INFO'].include?("/about") %>
+      <li class="active"><%= link_to "A propos", about_path %></li>
+      <li><%= link_to "Notre charte", notre_charte_path %></li>
+      <li><%= link_to "Contact", new_contact_form_path %></li>
+      <li><%= link_to "FAQ", faq_path %></li>
+    <% elsif request.env['PATH_INFO'].include?("/notre_charte") %>
+      <li><%= link_to "A propos", about_path %></li>
+      <li class="active"><%= link_to "Notre charte", notre_charte_path %></li>
+      <li><%= link_to "Contact", new_contact_form_path %></li>
+      <li><%= link_to "FAQ", faq_path %></li>
+    <% elsif request.env['PATH_INFO'].include?("/contact_forms") %>
+      <li><%= link_to "A propos", about_path %></li>
+      <li><%= link_to "Notre charte", notre_charte_path %></li>
+      <li class="active"><%= link_to "Contact", new_contact_form_path %></li>
+      <li><%= link_to "FAQ", faq_path %></li>
+    <% else %>
+      <li><%= link_to "A propos", about_path %></li>
+      <li><%= link_to "Notre charte", notre_charte_path %></li>
+      <li><%= link_to "Contact", new_contact_form_path %></li>
+      <li class="active"><%= link_to "FAQ", faq_path %></li>
+    <% end %>
+  </ul>
+</div>
+

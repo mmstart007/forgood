@@ -1,0 +1,69 @@
+<% content_for :meta_title, "À propos" %>
+<% content_for :meta_description, "En apprendre un peu plus sur CforGood" %>
+<% content_for :meta_image %>
+
+<div class="container-fluid">
+  <div class="container-fluid" id="header-cforgood-legal">
+    <div class="row">
+      <div class="page-title" id="page-title-legal">
+        <h1>A PROPOS</h1>
+        <h3>En apprendre un peu plus sur nous</h3>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid bg-legal">
+    <div id="whitebox-legal"></div>
+    <div class="row">
+      <!-- Sub Menu NavBar  -->
+      <%= render "pages/shared/tabs_footer_cforgood" %>
+      <!-- Content -->
+      <div class="col-xs-12 col-sm-6 content-legal">
+        <div class="mb-60">
+          <h3 class="section-title text-center">NOTRE VISION</h3>
+          <h4 class="section-subtitle text-center">Un monde en quête de sens</h4>
+          <p>
+            Pour des raisons évidentes, nous sommes de plus en plus nombreux à prendre conscience de l'impact de nos modes de vie sur notre santé ou l'état de la planète.<br>
+            Mais face à l'urgence du quotidien et la faible visibilité des solutions qui s'offrent à nous, nous manquons aujourd'hui davantage d’outils pour agir, que de moyens pour s'informer.<br>
+            Il est maintenant temps de créer des moyens inclusifs pour faciliter le passage à l'action et faire participer le plus grand nombre car notre vision se résume en une conviction : <strong>nous pouvons tous changer le monde à notre échelle.</strong><br><br>
+            Et c'est là que CforGood intervient.
+          </p>
+        </div>
+        <div class="mb-60">
+          <h3 class="section-title text-center">NOTRE MISSION</h3>
+          <h4 class="section-subtitle text-center">Nous redonner le pouvoir d'agir dans le bon sens</h4>
+          <p>
+            Chez CforGood, nous cherchons à émanciper l’acteur du changement qui est en chacun de nous, en favorisant vos comportements responsables au quotidien. <br><br>
+            Comment ? En vous connectant aux acteurs positifs du territoire.
+            Nous rendons cela possible en mettant subtilement en coopération les associations défendant des causes locales et globales avec les commerces locaux offrant des réductions aux citoyens engagés.<br>
+            En créant cet éco-système positif, nos membres CforGood peuvent consommer plus local et apprécier les meilleurs spots de leur ville tout en soutenant la cause qui leur tient à coeur.<br><br>
+            Nous pensons réellement qu’en cumulant le soutien aux associations et des bons plans exclusifs chez les acteurs d'une économie plus responsable, agir positivement peut devenir bien plus qu’une simple résolution du nouvel an, mais un véritable style de vie basé sur la coopération et la solidarité. <br><br>
+            Une solution pour cette génération en quête de sens et un exemple inspirant pour celles d’après.<br><br>
+            Ensemble nous sommes une Révolution Positive. Ensemble, nous pouvons être le changement... Le changement commence <%= link_to "ici et maintenant", new_user_registration_path %>.
+          </p>
+        </div>
+        <div class="mb-60">
+          <h3 class="section-title text-center">COMMENT CA MARCHE ?</h3>
+          <div class="embed-container" id="video-about">
+            <iframe class="border-video" width="500" height="285" src="https://www.youtube.com/embed/4tYrdTm6lwQ?controls=0&rel=0&showinfo=0" frameborder="0"></iframe>
+          </div>
+          <h4 class="section-subtitle text-center pt-30">Rien De Plus Simple...</h4>
+          <p><strong>SOUTENEZ...</strong> le développement des acteurs positifs de votre territoire grâce à votre abonnement de 5€/mois (dont 50% reversés à l'association de votre choix).<br>
+            <strong>BÉNÉFICIEZ...</strong> de réductions exclusives chez les commerces de votre ville (correspondant à notre <strong class="w-400"><%= link_to "charte", notre_charte_path %></strong>) simplement en montrant votre carte de membre.  <!-- (Pour voir comment accéder à votre carte de membre, cliquez ici)--><br>
+            <strong>PARTICIPEZ...</strong> au quotidien à un mouvement favorisant l'émergence d'une société plus responsable.<br><br>
+            Avec CforGood, vous êtes bien plus qu'un simple consommateur mais le véritable moteur d’une dynamique innovante qui profite à tous.<br><br>
+            Alors n'hésitez plus, créez votre compte en <%= link_to "cliquant ici", new_user_registration_path %> et rejoignez la Révolution Positive pour changer les choses au quotidien... Sans avoir à prendre les armes !<br><br>
+
+            <strong>CforGood, l'évidence d'aller dans le bon sens.</strong><br><br>
+          </p>
+        </div>
+        <div class="mt-70"></div>
+        <div id="write-us-about">
+          <h3 class="black section-title text-center">D'autres Questions ? Ecrivez-Nous !</h3>
+          <div class="text-center" id="btn-write-us">
+            <%= link_to "Nous Ecrire", new_contact_form_path, class: "btn btn-turquoise" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

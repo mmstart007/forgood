@@ -1,0 +1,21 @@
+<!-- Nav pills -->
+<div class="col-xs-12 col-sm-4" id="menu-footer-legal">
+  <ul id="menu" class="nav nav-pills nav-stacked">
+    <% if request.env['PATH_INFO'].include?("/cgu") %>
+      <li class="active"><%= link_to "Conditions Générales", cgu_path %></li>
+      <li><%= link_to "Charte De Confidentialité", charte_confidentialite_path %></li>
+      <li><%= link_to "Mentions Légales", mentions_legales_path %></li>
+    <% elsif request.env['PATH_INFO'].include?("/charte_confidentialite") %>
+      <li><%= link_to "Conditions Générales", cgu_path %></li>
+      <li class="active"><%= link_to "Charte De Confidentialité", charte_confidentialite_path %></li>
+      <li><%= link_to "Mentions Légales", mentions_legales_path %></li>
+    <% else %>
+      <li><%= link_to "Conditions Générales", cgu_path %></li>
+      <li><%= link_to "Charte De Confidentialité", charte_confidentialite_path %></li>
+      <li class="active"><%= link_to "Mentions Légales", mentions_legales_path %></li>
+    <% end %>
+  </ul>
+</div>
+
+
+

@@ -1,0 +1,313 @@
+// SECTION GENERAL
+.section-title {
+  position: relative;
+  margin-bottom: 50px;
+
+  &:after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    padding-top: 30px;
+    width: 150px;
+    border-bottom: 3px solid $turquoise;
+  }
+}
+
+.presentation,
+.process,
+.card-1,
+.sponsoring,
+.categories,
+.ecosysteme,
+.ambassadors,
+.supporters,
+.registration {
+  position: relative;
+  text-align: center;
+  border-top: 1px #f1f1f1 solid;
+}
+
+// SECTION - PRÉSENTATION
+//***************************************************************************//
+
+.presentation { background-color: $section-medium; }
+
+.subtitle {
+  padding-bottom: 0 6px 10px 6px;
+}
+
+.video-mobile {
+  top: -20px;
+  @media only screen and (max-width:768px){ top: 0; }
+}
+
+
+// SECTION - WORK PROCESS ***************************************************//
+//***************************************************************************//
+
+.process {
+  background-color: $section-light;
+
+  .discover h3 { color: $blue;}
+  .localise h3 { color: $turquoise;}
+  .enjoy h3 { color: $green;}
+  p { margin: 15px; }
+  img { height: 330px; }
+
+  @media only screen and (max-width:768px){
+    .discover, .localise, .enjoy { margin-bottom: 20px; }
+  }
+}
+
+// SECTION - CARD 1
+//****************************************************************************//
+.card-1 {
+  background-color: $section-medium;
+
+  .slick-slider { margin-top: 30px; }
+  ul.slick-dots { display: none; }
+  button.slick-arrow { display: none !important; }
+
+  p {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+}
+
+// SECTION - SPONSORING //****************************************************//
+//****************************************************************************//
+
+.sponsoring {
+  background-image: image-url("bg-sponsoring.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding-bottom: 0;
+
+  .overlay-sponsoring {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.25);
+  }
+
+  .highlight {
+    display: block;
+    margin: 25px 0;
+    color: $white;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .sponsoring-content {
+    text-align: left;
+    margin-bottom: 75px;
+    padding-right: 100px;
+    @media only screen and (max-width:1024px){ padding-right: 40px; }
+    @media only screen and (max-width:768px){ padding-right: 0; text-align: center; }
+    @media only screen and (max-width:480px){ padding-left: 6px; padding-right: 6px; text-align: center; }
+
+    a {
+      margin-left: 0;
+    }
+  }
+
+  h2, h3, p { color: $white; }
+
+  h3 {
+    margin-top: 28px;
+    font-size: $large-font;
+    font-weight: 400;
+  }
+
+  p { padding-top: 20px; }
+  img { float: left; }
+  button { margin: 0; }
+
+  .sponsoring-mockup {
+    position: relative;
+  }
+
+  img {
+    height: 420px;
+    margin-top: 35px;
+    margin-left: -24px;
+    @media only screen and (max-width:1080px){ height: 280px; }
+    @media only screen and (max-width:768px){ height: 260px; }
+    @media only screen and (max-width:480px){ height: 228px; }
+  }
+}
+
+// SECTION - ASSOCIATIONS //****************************************************//
+//****************************************************************************//
+
+.categories {
+  background-color: $section-medium;
+
+  ul {
+    position: relative;
+    padding: 50px 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    li {
+      width: 25%;
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+    }
+  }
+
+  img {
+    width: 164px;
+    height: 164px;
+    border-radius: 50%;
+  }
+
+  span {
+    width: 80%;
+    color: $white;
+    background-color: #36d3da;
+    padding: 10px 20px;
+    margin-top: -30px;
+    border-radius: 20px;
+    font-size: 16px;
+    transform: rotate(-5deg);
+  }
+
+  @media only screen and (max-width:1200px){
+    ul {
+      li {
+         width: 33.33333%;
+      }
+    }
+  }
+
+  @media only screen and (max-width:760px){
+    ul {
+      li {
+         width: 50%;
+      }
+    }
+  }
+
+  @media only screen and (max-width:520px){
+    span { font-size: 12px; }
+    p { padding: 0 20px; }
+    ul { padding-bottom : 0; }
+  }
+
+  @media only screen and (max-width:320px){
+    img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+}
+
+// SECTION - ECOSYSTEM //****************************************************//
+//****************************************************************************//
+
+.ecosysteme {
+  background-color: $section-light;
+
+  h3, p { margin-bottom: 30px; }
+  p { padding: 0 20px; }
+  .button { margin-top: 30px; }
+  .business, .association { padding: 0 15px; }
+
+  @media only screen and (max-width:768px){
+    p { margin-bottom: 0; }
+  }
+}
+
+// SECTION - AMBASSADOR //****************************************************//
+//****************************************************************************//
+
+.ambassadors {
+  position: relative;
+  background:image-url('bg-ambassador.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  .overlay-ambassador {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(30,49,50,0.73);
+  }
+
+  h2, h3, p, li { color: $white; }
+  p { padding: 0 10px; }
+}
+
+// SECTION - SUPPORTERS //****************************************************//
+//****************************************************************************//
+
+.supporters {
+  background-color: $turquoise;
+
+  h2 {
+    display: flex;
+    align-items: center;
+    -webkit-margin-before: 0px !important;
+    -webkit-margin-after: 0px !important;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    color: $white;
+
+    &::before,
+    &::after {
+      padding-top: 0;
+      margin: 0 20px;
+      content: "";
+      border-bottom: solid #fff 1px;
+      flex: 1;
+    }
+  }
+
+  .row-logo { margin: 20px 0; }
+
+  img {
+    padding: 0 20px;
+    margin: 5px;
+    height: 75px;
+    height: 50px;
+  }
+}
+
+// SECTION - CTA REGISTRATION //**********************************************//
+//****************************************************************************//
+.registration {
+  position: relative;
+  background-image: image-url("cover-cforgood-legal.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: bottom;
+
+  .overlay-registration {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(30,49,50,0.3);
+  }
+
+  h3 {
+    color: $white;
+    margin-bottom: 40px;
+  }
+}

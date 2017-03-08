@@ -1,0 +1,7 @@
+<div class="address-shop nested-fields">
+  <% label = f.object.main ? "Adresse Principale" : "Autre adresse" %>
+  <%= f.input :street, placeholder: 'Rue', label: label, input_html: {class: 'business_street'} %>
+  <%= f.input :zipcode, placeholder: 'Code postal', label: 'Code postal' %>
+  <%= f.input :city, placeholder: 'Ville', label: 'Ville' %>
+  <%= link_to_remove_association("-", f, class: 'button-address-minus') unless f.object.main %>
+</div>

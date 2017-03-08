@@ -1,0 +1,326 @@
+<% content_for :meta_title %>
+<% content_for :meta_description %>
+<% content_for :meta_image %>
+
+<!-- HEADER -->
+<div id="header" class="landing-home">
+  <!-- HEADER GRADIENT OVERLAY -->
+  <div class="header-overlay"></div>
+  <div class="container-fluid header-content">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <!-- HEADER CONTENT -->
+        <%= image_tag('logopouce.png', :class => 'header-logo') %>
+        <h1 class="header-title">La révolution positive</h1>
+        <p class="header-subtitle">La plateforme qui redonne le pouvoir d'agir dans le bon sens !</p>
+        <!-- SIGNUP -->
+        <div id="btn-become-home">
+          <%= link_to "S'inscrire gratuitement", new_user_registration_path, class: "button button-turquoise" %>
+        </div>
+        <!-- BOUCING ARROW -->
+        <a href="#presentation" rel="Go to the service presentation section">
+          <i class="fa fa-angle-down pulse hidden-xs"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRESENTATION - LA REVOLUTION POSITIVE -->
+<section class="container-fluid presentation" id="presentation">
+  <div class="container">
+    <div class="row">
+      <h2 class="section-title">Une révolution positive</h2>
+      <!-- BLOCK VIDEO -->
+      <div class="col-md-5">
+        <div class="embed-container video-mobile">
+          <iframe class="border-video" width="500" height="285" src="https://www.youtube.com/embed/4tYrdTm6lwQ?controls=0&rel=0&showinfo=0" frameborder="0"></iframe>
+        </div>
+      </div>
+      <!-- BLOCK DESCRIPTION -->
+      <div class="col-md-6 col-md-offset-1">
+        <h3 class="subtitle">Il est temps de connecter localement les acteurs qui rêvent ensemble !</h3>
+        <p>CforGood est une plateforme web et mobile qui vous connecte aux acteurs positifs de votre territoire pour favoriser les comportements responsables !</p>
+        <p>Elle vous permet de localiser et de bénéficier de réductions chez les commerces responsables autour de vous, en échange d'une adhésion de 5€/mois destinée à soutenir l’association de votre choix.</p>
+        <p>Enfin un moyen simple et valorisant de participer à l’émergence d’une société plus responsable et solidaire.</p>
+        <p><strong>CforGood, l’évidence d’aller dans le bon sens.</strong></p>
+        <!-- CTA - EN SAVOIR PLUS -->
+        <%= button_to "En Savoir Plus", about_path, method: :get, class: "button button-turquoise" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMENT ÇA MARCHE -->
+<section class="container-fluid process">
+  <div class="container">
+    <div class="row">
+      <h2 class="section-title">Comment ça marche ?</h2>
+      <div class="col-xs-12">
+        <!-- MOCKUP 1 -->
+        <div class="col-xs-12 col-sm-4 discover" data-sr="enter bottom and scale up 20% over 1s">
+          <%=image_tag("IphoneMap.png") %>
+          <h3>Localisez</h3>
+          <p>Redécouvrez votre ville en localisant les commerces responsables autour de vous.</p>
+        </div>
+        <!-- MOCKUP 2 -->
+        <div class="col-xs-12 col-sm-4 localise" data-sr="enter bottom and scale up 20% over 1s">
+          <%=image_tag("IphoneHome.png") %>
+          <h3>Découvrez</h3>
+          <p>Consultez les bons plans exclusifs proposés par chacun d'eux.</p>
+        </div>
+        <!-- MOCKUP 3 -->
+        <div class="col-xs-12 col-sm-4 enjoy" data-sr="enter bottom and scale up 20% over 1s">
+          <%=image_tag("IphoneCard.png") %>
+          <h3>Profitez !</h3>
+          <p>Profitez en simplement en montrant votre carte de membre !</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARTE - BONS PLANS -->
+<section class="container-fluid card-1">
+  <div class="container">
+    <div class="row">
+      <h2 class="section-title">Une plateforme généreuse</h2>
+      <div class="col-xs-12">
+        <p>Les commerçants responsables sont tous les jours un peu plus nombreux à offrir des bons plans aux citoyens engagés.</p>
+        <p>Découvrez les derniers à nous avoir rejoints :</p>
+      </div>
+      <div class="col-xs-12">
+        <!-- SLICK SLIDER -->
+        <div class="container carrousel">
+          <% @businesses.each do |business| %>
+          <% if business.perks.active.first != nil %>
+          <div class="col-xs-12 col-sm-3">
+            <div class="perk-card">
+              <%= image_tag business.picture.url(:card) %>
+              <div class="box-shadow">
+                <span><%= business.business_category.name%></span>
+                <h3 class="business-name"><%= business.name%></h3>
+                <i class="fa fa-map-marker"><strong><%=business.city%></strong></i>
+                <h4 class="business-perk"><%= business.perks.active.first.name.upcase%></h4>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARTE - SPONSORING -->
+<section class="container-fluid sponsoring">
+  <div class="row">
+    <div class="overlay-sponsoring"></div>
+    <h2 class="section-title">Une plateforme solidaire</h2>
+    <div class="col-xs-12 col-sm-6 sponsoring-mockup">
+      <%= image_tag("member-card.png") %>
+    </div>
+    <div class="col-xs-12 col-sm-6 sponsoring-content">
+      <h3>Parrainez une association</h3>
+      <p>Découvrez les initiatives de votre ville et devenez ambassadeur de l'une d'entre elle en lui reversant chaque mois, 50% de votre abonnement.</p>
+      <p>Donnez ainsi les moyens à la cause qui vous tient à coeur, de continuer à agir pour avoir un impact positif sur la société.</p>
+      <span class="highlight">Jamais vous ne vous sentirez autant acteur du changement !</span>
+      <%= link_to "Choisissez votre association", new_user_registration_path, class: "button button-turquoise" %>
+    </div>
+  </div>
+</section>
+
+<!-- ASSOCIATIONS -->
+<section class="container-fluid categories">
+  <div class="container">
+    <div class="row">
+      <h2 class="section-title">À chaque cause, ses associations</h2>
+      <div class="col-sm-12">
+        <p>Découvrez les grandes thématiques pour lesquelles s'engagent nos associations partenaires.</p>
+        <ul>
+          <li>
+            <%= image_tag("insertion-et-precarite.jpg")%>
+            <span>#Insertion / Précarité</span>
+          </li>
+          <li>
+            <%= image_tag("environnement.jpg")%>
+            <span>#Environnement</span>
+          </li>
+          <li>
+            <%= image_tag("handicap.jpg")%>
+            <span>#Handicap</span>
+          </li>
+          <li>
+            <%= image_tag("solidarite-internationale.jpg")%>
+            <span>#Humanitaire</span>
+          </li>
+          <li>
+            <%= image_tag("aide-a-l-enfance.jpg")%>
+            <span>#Éducation</span>
+          </li>
+          <li>
+            <%= image_tag("sante.jpg")%>
+            <span>#Santé</span>
+          </li>
+          <li>
+            <%= image_tag("entrepreneuriat.jpg")%>
+            <span>#Entrepreneuriat Social</span>
+          </li>
+          <li>
+            <%= image_tag("culturel.jpg")%>
+            <span>#Culturel</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM ECOSYSTEM -->
+<section class="container-fluid ecosysteme">
+  <div class="container">
+    <div class="row">
+      <h2 class="section-title">Un écosystème vertueux</h2>
+      <!-- ECOSYSTEM PRESENTATION -->
+      <div class="col-xs-12">
+        <p>En plaçant l'humain au centre de cet écosystème positif, chaque membre est bien plus qu'un simple consommateur et devient le véritable moteur d'un mouvement indépendant favorisant l'émergence d'une société plus responsable et solidaire.</p>
+      </div>
+      <!-- COLUMNS BUSINESS & ASSOCIATIONS -->
+      <div class="col-xs-12 col-sm-6 business">
+        <h3>Vous êtes une entreprise ?</h3>
+        <p>Développez gratuitement votre activité et votre visibilité, tout en envoyant un message fort en faveur de l'engagement citoyen !</p>
+        <!-- BUTTON BUSINESS -->
+        <%= button_to "Inspirez vos clients", landing_business_path, method: :get, class: "button button-turquoise" %>
+      </div>
+      <div class="col-xs-12 col-sm-6 association">
+        <h3>Vous êtes une association ?</h3>
+        <p>Favorisez l'engagement des citoyens en leur offrant un moyen simple et incitatif de vous soutenir !</p>
+        <!-- BUTTON ASSOCIATION -->
+        <%= button_to "Développez votre impact", landing_cause_path, method: :get, class: "button button-green" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMBASSADORS -->
+<section class="container-fluid ambassadors">
+  <div class="overlay-ambassador"></div>
+  <div class="container">
+    <div class="row">
+      <h2 class="section-title">Participez au développement de CForGood</h2>
+      <div class="col-xs-12">
+        <p>Faites partie des personnes qui nous aident à construire la communauté et vivez avec nous cette aventure incroyable !</p>
+        <!-- AMBASSADEUR -->
+        <div class="col-sm-6 col-sm-offset-3">
+          <h3>Ambassadeur :</h3>
+          <p>Nos soutiens les plus précieux ! Grâce à notre Kit Ambassadeur, aidez-nous à développer la communauté en faisant rayonner le projet et devenez partie intégrante de l'équipe pour construire ensemble le futur de CforGood.</p>
+          <!-- BUTTON - TYPEFORM 1 -->
+          <%= button_to "Devenez Ambassadeur", "https://cforgood1.typeform.com/to/iZ5QFx", class: "button button-turquoise" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="container-fluid" id="faq">
+  <div class="container">
+    <div class="row">
+      <h2 class="section-title">Quelques réponses à vos questions !</h2>
+      <!-- CONTENT FAP -->
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-justify content-legal">
+        <ul>
+          <li>
+            <div class="faq-question"><i class="fa fa-chevron-circle-right"></i>Puis-je voir les bons plans et les associations sans payer ?</div>
+            <div class="faq-answer">
+             Oui bien sûr, il suffit de vous inscrire et de passer l’étape de paiement pour découvrir l’ensemble de la plateforme.
+            </div>
+          </li>
+          <li>
+            <div class="faq-question"><i class="fa fa-chevron-circle-right"></i>Dois-je être membre pour en profiter ?</div>
+            <div class="faq-answer">
+              Oui, nos bons plans sont exclusivement réservés à nos membres.
+            </div>
+          </li>
+          <li>
+            <div class="faq-question"><i class="fa fa-chevron-circle-right"></i>Comment marche le site ?</div>
+            <div class="faq-answer">
+              C’est très simple. Une fois inscrit, vous arrivez sur la carte de votre ville qui référence l’ensemble des commerces partenaires et les bons plans qu’ils proposent pour vous récompenser. Vous pouvez consulter tous les bons plans et associations par thématique et en voir les détails simplement en cliquant dessus. Pour profiter des bons plans, il suffit de cliquer sur « j’en profite » pour accéder à votre carte de membre numérique. Allez-y, baladez vous dans CforGood, nous sommes sûrs que vous allez adorer !
+            </div>
+          </li>
+          <li>
+            <div class="faq-question"><i class="fa fa-chevron-circle-right"></i>Comment puis-je soutenir une association ?</div>
+            <div class="faq-answer">
+              En vous inscrivant sur CforGood, vous allez reverser la moitié de votre abonnement à une des associations partenaires. Lors de votre inscription, vous pourrez choisir celle de votre choix et obtenir des nouvelles de son actualité, de ses événements et de son impact grâce à votre aide.
+            </div>
+          </li>
+          <li>
+            <div class="faq-question"><i class="fa fa-chevron-circle-right"></i>Comment vous choisissez vos associations ?</div>
+            <div class="faq-answer">
+              Nos associations sont choisies pour leur engagement et leur impact sur le territoire. Leur caractère innovant, social ou environnemental est déterminant dans notre choix. À travers nos 8 grandes thématiques, nous essayons de représenter toutes les causes dans le besoin, mais nous savons qu’il nous en manque certaines. Nous espérons à terme mettre en place un système où les utilisateurs pourront eux-mêmes sélectionner les projets. C’est encore en construction.
+            </div>
+          </li>
+          <li>
+            <div class="faq-question"><i class="fa fa-chevron-circle-right"></i>Allez vous vous étendre en dehors de Bordeaux ?</div>
+            <div class="faq-answer">
+              Bien sûr. Notre plan est de démarrer la communauté à Bordeaux puis propager CforGood au reste du monde, en commençant par les grandes villes de France.
+            </div>
+          </li>
+          <li>
+            <div class="faq-question"><i class="fa fa-chevron-circle-right"></i>Comment accéder à CforGood sur mobile ?</div>
+            <div class="faq-answer">
+              Tout simplement en entrant cforgood.com sur votre navigateur (Chrome ou Safari). Pas besoin de télécharger d’application, nous l’avons construite pour qu’elle soit accessible à tous les téléphones sans exception.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORTERS -->
+<section class="container-fluid supporters">
+  <div class="container">
+    <h2>Ils nous soutiennent</h2>
+    <div class="row row-logo">
+      <%=link_to image_tag("banquepostale-white.png"), "https://www.labanquepostale.fr/", target: "_blank" %>
+      <%=link_to image_tag("makesense-white.png"), "http://beta.makesense.org/", target: "_blank" %>
+      <%=link_to image_tag("metropole-white.png"), "http://www.bordeaux-metropole.fr/", target: "_blank" %>
+      <%=link_to image_tag("darwin-white.png"), "http://www.darwin-ecosysteme.fr/", target: "_blank" %>
+      <%=link_to image_tag("ticket-for-change.png"), "http://www.ticketforchange.org/", target: "_blank" %>
+    </div>
+     <div class="row row-logo">
+      <%=link_to image_tag("kisskissbankbank-white.png"), "http://www.kisskissbankbank.com/", target: "_blank" %>
+      <%=link_to image_tag("mazars-white.png"), "https://www.mazars.fr/", target: "_blank" %>
+      <%=link_to image_tag("bordeaux-white.png"), "http://www.bordeaux.fr/", target: "_blank" %>
+    </div>
+    <div class="row row-logo">
+      <%=link_to image_tag("french-tech-white.png"), "http://www.lafrenchtech.com/", target: "_blank" %>
+      <%=link_to image_tag("aec-white.png"), "http://www.aecom.org/", target: "_blank" %>
+      <%=link_to image_tag("ecolo-info-white.png"), "http://www.ecoloinfo.com/", target: "_blank" %>
+      <%=link_to image_tag("bpi-white.png"), "http://www.bpifrance.fr/", target: "_blank" %>
+      <%=link_to image_tag("keep-a-breast-white.png"), "http://www.keep-a-breast.org/", target: "_blank" %>
+    </div>
+  </div>
+</section>
+
+<!-- CALL FOR ACTION SUBCRIPTION -->
+<section class="container-fluid registration">
+  <div class="overlay-registration"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h3>Inscrivez-vous gratuitement !</h3>
+        <!-- SIGNUP -->
+        <%= link_to "Essayer maintenant", new_user_registration_path, class: "button button-turquoise" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% content_for :after_js do %>
+
+  <%= render "pages/js/faq" %>
+
+<% end %>

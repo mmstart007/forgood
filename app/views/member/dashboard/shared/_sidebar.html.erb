@@ -1,0 +1,122 @@
+<div class="users-sidebar">
+  <ul id="sidebar">
+    <!-- USER SIGN IN -->
+    <% if user_signed_in? %>
+      <li class="<%= active_class(member_user_dashboard_path(current_user))%>">
+        <%= link_to member_user_dashboard_path(current_user) do %>
+          <div class="icon-container">
+            <%= render "shared/icons/around_me" %>
+          </div>
+          <span class="admin-label">Autour de moi</span>
+        <% end %>
+      </li>
+      <li class="<%= active_class(businesses_path)%> light">
+        <%= link_to businesses_path do %>
+          <div class="icon-container">
+            <%= render "shared/icons/perks" %>
+          </div>
+          <span class="admin-label">Les Bons Plans</span>
+        <% end %>
+      </li>
+      <li class="<%= active_class(asso_causes_path)%> light">
+        <%= link_to asso_causes_path do %>
+          <div class="icon-container">
+            <%= render "shared/icons/causes" %>
+          </div>
+          <span class="admin-label">Les associations</span>
+        <% end %>
+      </li>
+      <% if device_type != :mobile %>
+        <li class="<%= active_class(member_user_gift_path(current_user)) %> light ">
+          <%= link_to member_user_gift_path(current_user) do %>
+            <div class="icon-container">
+              <i><%= image_tag 'icons/present.svg' %></i>
+            </div>
+            <span class="admin-label">Plaisir d'offrir</span>
+          <% end %>
+        </li>
+        <li class="<%= active_class(member_user_ambassador_path(current_user)) %> light ">
+          <%= link_to member_user_ambassador_path(current_user) do %>
+            <div class="icon-container">
+              <%= render "shared/icons/ambassador" %>
+            </div>
+            <span class="admin-label">Espace ambassadeur</span>
+          <% end %>
+        </li>
+      <% end %>
+
+
+    <!-- USER NOT SIGN IN -->
+    <% else %>
+      <li class="<%= active_class(map_path)%>">
+        <%= link_to map_path do %>
+          <div class="icon-container">
+            <%= render "shared/icons/around_me" %>
+          </div>
+          <span class="admin-label">Autour de moi</span>
+        <% end %>
+      </li>
+      <li class="<%= active_class(businesses_path)%> light">
+        <%= link_to businesses_path do %>
+          <div class="icon-container">
+            <%= render "shared/icons/perks" %>
+          </div>
+          <span class="admin-label">Les Bons Plans</span>
+        <% end %>
+      </li>
+      <li class="<%= active_class(asso_causes_path)%> light">
+        <%= link_to asso_causes_path do %>
+          <div class="icon-container">
+            <%= render "shared/icons/causes" %>
+          </div>
+          <span class="admin-label">Les associations</span>
+        <% end %>
+      </li>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <!-- MOBILE | OPEN MENU DROPDOWN -->
+      <li id="profile-tab" class="mobile-dropdown">
+        <a href="#">
+          <div class="icon-container">
+            <%= render "shared/icons/profile" %>
+          </div>
+          <span class="admin-label">Mon profil</span>
+        </a>
+        <%= render "components/navbar_dropdown_profile" %>
+      </li>
+     <% else %>
+      <!-- MOBILE | OPEN MENU DROPDOWN LOGOUT -->
+      <li id="profile-tab" class="mobile-dropdown">
+        <a href="#">
+          <div class="icon-container">
+            <%= render "components/svg/logo_thumb_white" %>
+          </div>
+        </a>
+        <%= render "components/navbar_dropdown_logout" %>
+      </li>
+    <% end %>
+  </ul>
+  <div class="signout">
+    <%= link_to more_infos_path do %>
+      <%= image_tag('icons/signout.png', :class => 'signout-icon sign-out') %>Plus d'infos ?
+    <% end %>
+  </div>
+</div>
+
+
+<% content_for :after_js do %>
+  <script>
+    $(document).ready(function(){
+      $('.mobile-dropdown').click(function(event) {
+        $('.mobile-menu').toggleClass('hidden');
+        $('.mobile-menu-overlay').toggleClass('hidden');
+      });
+
+      $('.mobile-menu-overlay').click(function(event) {
+        $(this).addClass('hidden');
+        $('.mobile-menu').addClass('hidden');
+      });
+    });
+  </script>
+<% end %>

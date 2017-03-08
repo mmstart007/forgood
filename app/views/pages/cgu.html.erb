@@ -1,0 +1,25 @@
+<% content_for :meta_title, "CGU" %>
+<% content_for :meta_description, "Conditions Générales" %>
+<% content_for :meta_image %>
+
+<div class="container-fluid">
+  <div class="container-fluid" id="header-cforgood-legal">
+    <div class="row">
+      <div class="page-title" id="page-title-legal">
+        <h1>Conditions générales d’utilisation
+        de CFORGOOD</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid bg-legal">
+    <div id="whitebox-legal"></div>
+    <div class="row">
+      <!-- Sub Menu NavBar  -->
+      <%= render "pages/shared/tabs_footer_legal" %>
+      <!-- Content -->
+      <div class="col-xs-12 col-sm-6 content-legal">
+        <%= render "pages/shared/cgu_content" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,228 @@
+<% content_for :meta_title, "Causes Partenaires" %>
+<% content_for :meta_description, "Engagez les citoyens comme jamais auparavant" %>
+<% content_for :meta_image %>
+
+<!-- HEADER -->
+<div id="header" class="landing-cause">
+  <!-- HEADER GRADIENT OVERLAY -->
+  <div class="header-overlay"></div>
+  <div class="container-fluid header-content">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <!-- HEADER CONTENT -->
+        <%= image_tag('logopouce-white.png', :class => 'header-logo') %>
+        <h1>Engagez vos supporters comme jamais</h1>
+        <div id="btn-become-cause">
+          <a class="button button-turquoise" href="https://cforgood1.typeform.com/to/PdisGd" data-mode="1" target="_blank">Devenir Partenaire</a>
+        </div>
+        <!-- BOUCING ARROW -->
+        <a href="#presentation-cause" rel="Go to the problem section">
+          <i class="fa fa-angle-down pulse hidden-xs"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- PRESENTATION - LA REVOLUTION POSITIVE -->
+<section class="container-fluid presentation" id="presentation-cause">
+  <div class="container">
+    <div class="row">
+      <h2 class="section-title">Une révolution positive</h2>
+      <!-- BLOCK DESCRIPTION -->
+      <div class="col-md-8 col-md-offset-2">
+        <p>CforGood est une plateforme qui vous propose de favoriser l’engagement de vos supporters en facilitant le soutien associatif.
+        Il s’agit d’un site web et d’une application mobile qui permettent aux citoyens engagés pour une cause, de bénéficier de bons plans chez les commerces locaux et responsables simplement en montrant leur carte de membre.</p>
+        <p>Une bonne manière d’inspirer la solidarité et d’engager vos supporters comme jamais !</p>
+        <p><strong>CforGood, l'évidence d'aller dans le bon sens.</strong></p>
+        <!-- CTA - EN SAVOIR PLUS -->
+        <%= button_to "En Savoir Plus", about_path, method: :get, class: "button button-turquoise" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMENT ÇA MARCHE -->
+<section class="container-fluid process">
+  <div class="container">
+    <div class="row">
+      <h2 class="section-title">Comment ça marche ?</h2>
+      <div class="col-xs-12 mockup-cause">
+        <!-- MOCKUP 1 -->
+        <div class="col-xs-12 col-sm-4 discover" data-sr="enter bottom and scale up 20% over 1s">
+           <%= image_tag("charity-benefits-megaphone.png") %>
+          <h3>Communiquez</h3>
+          <p>Faites savoir autour de vous qu’il existe maintenant un moyen simple et récompensé de vous soutenir !</p>
+        </div>
+         <!-- MOCKUP 2 -->
+        <div class="col-xs-12 col-sm-4 localise" data-sr="enter bottom and scale up 20% over 1s">
+         <%= image_tag("charity-benefits-piggybank.png") %>
+          <h3>Récoltez</h3>
+          <p>Recevez chaque mois les fonds collectés par vos supporters.</p>
+        </div>
+         <!-- MOCKUP 3 -->
+        <div class="col-xs-12 col-sm-4 enjoy" data-sr="enter bottom and scale up 20% over 1s">
+          <%= image_tag("charity-benefits-clapperboard.png") %>
+          <h3>Agissez !</h3>
+          <p>Passez à l'action et faites savoir à vos supporters l'impact de leur soutien ! </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICES -->
+<section class="container-fluid benefits">
+  <div class="blackbox"></div>
+  <div class="container">
+    <div class="row">
+      <h2 class="section-title">La solution qu'il vous faut !</h2>
+      <div class="col-xs-10 col-xs-offset-1">
+        <!-- MOCKUP 1 -->
+        <div class="col-xs-12 col-sm-4 item-benefit">
+          <div class="col-xs-12">
+            <%=image_tag("icons/icon_visibilite.png") %>
+            <p class="title-benefit">Une visibilité accrue</p>
+            <p>Découvrez un moyen simple de vous faire entendre à travers nos différents canaux de communication.</p>
+          </div>
+        </div>
+        <!-- MOCKUP 2 -->
+        <div class="col-xs-12 col-sm-4 item-benefit">
+          <div class="col-xs-12">
+            <%=image_tag("icons/icon-benefits-lovemoney.png") %>
+            <p class="title-benefit">Un moyen simple de récolter des fonds</p>
+            <p>Profitez d'un incroyable moyen de récolter des fonds réguliers en récompensant vos donateurs.</p>
+          </div>
+        </div>
+        <!-- MOCKUP 3 -->
+        <div class="col-xs-12 col-sm-4 item-benefit">
+          <div class="col-xs-12">
+            <%=image_tag("icons/icon-benefits-community.png") %>
+            <p class="title-benefit">Un réseau actif et mobilisé</p>
+            <p>Communiquez sur l'impact de vos actions et mobilisez la communauté à travers des appels à bénévolats.</p>
+          </div>
+        </div>
+        <%= link_to "Devenir Partenaire", "https://cforgood1.typeform.com/to/PdisGd", class: "button button-turquoise" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<!-- <section class="container-fluid testimonials">
+  <div class="container">
+    <div class="row">
+      <h2 class="section-title">Ce qu'ils en disent !</h2> -->
+      <!-- TESTIMONIAL 1 -->
+<!--       <div class="testimonial-item">
+        <div class="testimonial-text">
+          <p>Bénéficiez d'une visibilité en ligne et hors ligne instantanée auprès des citoyens engagés de votre territoire.</p>
+        </div>
+        <div class="testimonial-user">
+          <%#= image_tag "label-terre.png", class: "img-circle" %>
+          <div class="testimonial-name">
+            <p><strong>Christian</strong></p>
+            <span>MakeSense</span>
+          </div>
+        </div>
+      </div> -->
+      <!-- TESTIMONIAL 2 -->
+<!--       <div class="testimonial-item">
+        <div class="testimonial-text">
+          <p>Bénéficiez d'une visibilité en ligne et hors ligne instantanée auprès des citoyens engagés de votre territoire.</p>
+        </div>
+        <div class="testimonial-user">
+          <%#= image_tag "label-terre.png", class: "img-circle" %>
+          <div class="testimonial-name">
+            <p><strong>Andrea</strong></p>
+            <span>Surfrider Foundation Europe</span>
+          </div>
+        </div>
+      </div> -->
+      <!-- TESTIMONIAL 3 -->
+<!--       <div class="testimonial-item">
+        <div class="testimonial-text">
+          <p>Bénéficiez d'une visibilité en ligne et hors ligne instantanée auprès des citoyens engagés de votre territoire.</p>
+        </div>
+        <div class="testimonial-user">
+          <%#= image_tag "label-terre.png", class: "img-circle" %>
+          <div class="testimonial-name">
+            <p><strong>Sarah</strong></p>
+            <span>DiscoSoupe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- FAQ -->
+<section class="container-fluid" id="faq">
+  <div class="container">
+    <div class="row">
+      <h2 class="section-title">Quelques réponses à vos questions !</h2>
+      <!-- CONTENT FAP -->
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-justify content-legal">
+        <ul>
+          <li>
+            <div class="faq-question"><i class="fa fa-chevron-circle-right"></i>Comment puis-je inscrire mon association ?</div>
+            <div class="faq-answer">
+              En remplissant le formulaire d'inscription <%=link_to "Devenir partenaire", "https://cforgood1.typeform.com/to/PdisGd", target: "_blank" %>. Nous sommes toujours intéressés par de nouveaux partenariats avec des associations engagées, n'hésitez pas ! <br> Afin de valoriser l’impact auprès de chaque association partenaire, nous limitons son nombre à la taille de la communauté. C’est pourquoi nous allons très prochainement créer une liste d’attente où les membres pourront voter pour leur association préférée et ainsi la faire passer dans notre liste principale lorsqu’une nouvelle place se libèrera.
+            </div>
+          </li>
+          <li>
+            <div class="faq-question"><i class="fa fa-chevron-circle-right"></i>Puis-je contacter les membres qui soutiennent mon association ?</div>
+            <div class="faq-answer">
+              Du à la protection des données privées, nous ne partageons aucune donnée privée de nos membres. Cependant nous les encourageons à vous contacter. Vous pouvez également les rencontrer lors de nos événements et prochainement, vous serez en mesure de poster vous même, depuis votre tableau de bord, vos appels à bénévolat et autres demandes à la communauté.
+            </div>
+          </li>
+          <li>
+            <div class="faq-question"><i class="fa fa-chevron-circle-right"></i>Comment puis-je augmenter le nombre de membres soutenant mon association ?</div>
+            <div class="faq-answer">
+              CforGood vous fournit un incroyable moyen de récompenser vos donateurs ! Le meilleur moyen d’en profiter est de partager votre page CforGood à tous vos contacts et futurs supporteurs ! Faites leur savoir qu’il existe maintenant un moyen simple de vous soutenir et qu’ils seront récompensés par des réductions chez les commerces locaux et responsables autour d’eux !
+            </div>
+          </li>
+          <li>
+            <div class="faq-question"><i class="fa fa-chevron-circle-right"></i>Est-ce que CforGood prélève une commission sur mes fonds ?</div>
+            <div class="faq-answer">
+              Non. Les fonds indiqués sur votre cagnotte vous sont intégralement reversés.
+            </div>
+          </li>
+          <li>
+            <div class="faq-question"><i class="fa fa-chevron-circle-right"></i>Comment puis-je recevoir mes fonds ? D’où proviennent ils ?</div>
+            <div class="faq-answer">
+              Notre solution de paiement, MangoPay, gère tout le processus et vous envoie les fonds récoltés au début de chaque mois.
+            </div>
+          </li>
+          <li>
+            <div class="faq-question"><i class="fa fa-chevron-circle-right"></i>Quand puis-je recevoir les fonds récoltés ?</div>
+            <div class="faq-answer">
+              Les fonds récoltés vous sont reversés par notre solution de paiement MangoPay au début de chaque mois. Ils vous enverront un reçu !
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALL FOR ACTION SUBCRIPTION -->
+<section class="container-fluid registration">
+  <div class="overlay-registration"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h3>Inscrivez-vous dès aujourd'hui !</h3>
+        <!-- SIGNUP -->
+        <%= link_to "Devenir partenaire", href="https://cforgood1.typeform.com/to/PdisGd", target: "_blank", class: "button button-turquoise" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% content_for :after_js do %>
+
+  <%= render "pages/js/faq" %>
+
+<% end %>
+

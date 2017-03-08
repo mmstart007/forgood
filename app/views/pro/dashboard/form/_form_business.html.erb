@@ -1,0 +1,129 @@
+<div class="form-edit-container">
+  <div class="form-edit">
+    <!-- LINK ADDRESSES -->
+    <%= render "pro/dashboard/form/form_itinerant_addresses" %>
+    <!-- FORM BUSINESS -->
+    <%= simple_form_for(@business, url: pro_update_business_path, method: :put, remote: true, authenticity_token: true) do |f| %>
+      <%= f.error_notification %>
+      <div class="col-1">
+        <label>Photo</label>
+        <div class="picture-container">
+          <% if @business.picture? %>
+            <%= image_tag @business.picture.url, class: 'picture-business' %>
+          <% else %>
+            <div class="picture-none">
+              <%= render 'shared/icons/shop' %>
+            </div>
+          <% end %>
+        </div>
+        <%= f.input :picture, as: :file, required: false, label: 'Sélectionner une nouvelle image' %>
+      </div>
+      <div class="col-1">
+        <%= f.input :name, placeholder: 'Nom commerce', required: true, label: "Nom de l'établissement" %>
+        <%= f.input :description, as: :text, placeholder: 'Visible sur mes bons plans', :input_html => { :rows => 6, maxlength: 330 }, required: true, label: "Présenter mon commerce" %>
+      </div>
+      <!-- FOR MORE ADDRESS -->
+      <div class="address-other-shop" id="addresses">
+        <%= f.simple_fields_for :addresses do |address| %>
+          <%= render 'address_fields', f: address %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association '+', f, :addresses, class: 'button-address-more on-left' %>
+        </div>
+      </div>
+
+      <div class="select-wrapper">
+        <%= f.input :business_category_id, required: true, label: 'Activité', collection: BusinessCategory.all %>
+      </div>
+      <%= f.input :shop, label: "Es-tu une boutique physique ?", as: :radio_buttons, collection: [['Oui', true ], ['Non', false ]], checked: @business.shop || false  %>
+      <%= f.input :online, label: "Es-tu une e-boutique ?", as: :radio_buttons, collection: [['Oui', true ], ['Non', false ]], checked: @business.online || false  %>
+      <div class="business_itinerant_select">
+        <%= f.input :itinerant, label: "Es-tu itinérant ?", as: :radio_buttons, collection: [['Oui', true ], ['Non', false ]], checked: @business.itinerant || false  %>
+        <% if @business.itinerant %>
+          <a href="#" class="button-itinerant-address"><%= render "shared/icons/address" %></a>
+        <% else %>
+          <a href="#" class="button-itinerant-address hidden"><%= render "shared/icons/address" %></a>
+        <% end %>
+      </div>
+      <%= f.input :url, placeholder: 'Site web', label: 'Site web' %>
+      <%= f.input :email, placeholder: 'Adresse email', required: true, label: "Email" %>
+      <%= f.input :telephone, placeholder: 'Téléphone', required: true, label: 'Téléphone' %>
+      <%= f.input :facebook, placeholder: 'lapagedejohndoe', label: 'Facebook' %>
+      <%= f.input :twitter, placeholder: 'johndoe', label: 'Twitter' %>
+      <%= f.input :instagram, placeholder: 'johndoe', label: 'Instagram' %>
+      <div class="col-2">
+        <%= f.button :submit, "Sauvegarder" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :after_js do %>
+  <script>
+    $(document).ready(function() {
+
+      function readURL(input) {
+        var reader = new FileReader();
+          reader.onload = function (e) {
+            if ($('#shop .picture-business').attr('src') === undefined) {
+              $("#shop .picture-none").remove();
+              $('#shop .picture-container').append('<img src=" " class="picture-business" >')
+            };
+            $('#shop .picture-business').attr('src', e.target.result);
+          }
+        reader.readAsDataURL(input);
+      }
+
+      $('#profile-tab').addClass('active');
+      $(".business_picture").on("change", function(e) {
+        e.preventDefault();
+        var newFile = document.querySelector('#shop input[type=file]').files[0];
+        $(".business_picture").children().html(newFile.name);
+        readURL(newFile);
+      });
+
+      // ACTIVATE OR NOT BUTTON ITINERANT ADDRESS
+      $('.business_itinerant').on('change', function(e) {
+        e.preventDefault();
+        $(".button-itinerant-address").toggleClass('hidden');
+      });
+
+      // LINK TO ITINERANT ADDRESS
+      $(".button-itinerant-address").on("click", function(e) {
+        e.preventDefault();
+        $(".address-overlay").removeClass("hidden");
+      });
+
+
+      function build_autocomplete() {
+        var address_inputs = document.querySelectorAll('.business_street');
+
+        var places_autocomplete;
+        [].forEach.call(address_inputs, function (address_input) {
+          places_autocomplete = places({
+            container: address_input,
+            templates: {
+              value: function(suggestion) {
+                return suggestion.name;
+              }
+            }
+          });
+          places_autocomplete.on('change', function resultSelected(e) {
+            var string = this.autocomplete[0].id.split("street")[0];
+            $('#' + string + 'city').val(e.suggestion.city || '');
+            $('#' + string + 'zipcode').val(e.suggestion.postcode || '');
+          });
+        });
+      }
+
+      build_autocomplete();
+
+      $(".button-address-more").on("click", function() {
+        setTimeout(function() {
+          build_autocomplete();
+        }, 100);
+      });
+
+    });
+  </script>
+<% end %>

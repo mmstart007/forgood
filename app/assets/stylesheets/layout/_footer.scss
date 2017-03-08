@@ -1,0 +1,199 @@
+// Your footer style
+#footer {
+  display: block;
+  background-color: #24323f;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 170px;
+  padding: 50px 60px 30px 60px;
+  font-size: 15px;
+  color: white;
+  font-weight: 100;
+  h2 {
+    color: #fff;
+    font-size:18px;
+  }
+  h3 {
+    color: rgb (255,255,255);
+    line-height: 3px;
+    font-size: 14px;
+  }
+  li {
+    list-style-type: none;
+    margin-bottom: 5px;
+  }
+  a {
+    color: rgb(108,150,189);
+    &:hover {
+    color: rgb(210,210,210);
+    }
+  }
+  p {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+}
+
+#logo-footer {
+  img {
+    width: 150px;
+  }
+}
+
+.line-separator {
+    border-bottom: 1px solid white;
+    padding-top: 15px;
+}
+
+#sub-footer {
+  padding-top: 15px;
+  i {
+    color: red;
+  }
+}
+
+#footer-menu {
+  padding-left: 20px;
+  @media only screen and (max-width:768px){ padding-left: 0; }
+}
+
+#newsletter-footer {
+  form {
+    display: flex;
+    padding-bottom: 15px;
+  }
+
+  input {
+    height: 25px;
+    width: 200px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+
+  input[type="submit"] {
+    height: 25px;
+    width: 25px;
+    padding: 0;
+    margin-top: 0;
+    border-radius: 50%;
+  }
+
+  span {
+    padding-top: 3px;
+    padding-left: 13px;
+    font-size: 12px;
+    width: 200px;
+
+    &.error-newsletter {
+      color: $orange;
+    }
+
+    &.info-newsletter {
+      color: #9FD6AE;
+    }
+  }
+}
+
+.footer-title {
+  font-size: 18px;
+  font-weight: 500;
+  padding-bottom: 20px;
+  color: white;
+  @media only screen and (max-width:768px){ padding-top: 15px; padding-bottom: 10px; }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.link-contrast {
+  color: rgb(220,220,220) !important;
+  &:hover {
+    i {
+      color: white;
+      text-decoration: none;
+      outline: none;
+    }
+    opacity:0.8;
+  }
+}
+
+.footer-icon {
+  position: relative;
+  top: 7px;
+}
+
+.footer-icon-container-facebook {
+  display: block;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #445699;
+}
+
+.footer-icon-container-twitter {
+  display: block;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #6fa7de;
+}
+
+.footer-icon-container-linkedin {
+  display: block;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #3c6699;
+}
+
+.footer-icon-container-instagram {
+  display: block;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #014777;
+}
+
+
+.row-space-top-2 {
+  margin-top: 12.5px;
+}
+
+.text-muted {
+  color: #82888a;
+}
+
+.charte_confidentialite {
+  text-align: left !important;
+  p {
+    font-weight: 100 !important;
+    font-size: 15px !important;
+    color: rgb(51,51,51)!important;
+  }
+  h2 {
+    font-size: 22px !important;
+  }
+  h3 {
+    font-size: 20px !important;
+  }
+}
+
+.mentions_legales {
+  text-align: left !important;
+  p {
+    font-weight: 100 !important;
+    font-size: 15px !important;
+    color: rgb(51,51,51)!important;
+  }
+  h2 {
+    font-size: 22px !important;
+  }
+  h3 {
+    font-size: 20px !important;
+  }
+}

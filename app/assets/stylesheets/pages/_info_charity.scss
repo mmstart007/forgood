@@ -1,0 +1,144 @@
+#charity-page {
+}
+
+.bg-charity-problem {
+  position: relative;
+  background-image: image-url("bg-charity-problem.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  height: 500px;
+}
+
+#whitebox-charity-problem {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(134, 157, 155, 0.8);
+  color: rgb(255,255,255);
+  z-index: 1;
+  h2 {
+    font-weight: 400;
+  }
+}
+
+#charity-problem {
+  img {
+    width: 55%;
+    border: 5px rgba(237, 237, 237, 0.5) solid;
+    border-radius: 50%;
+    padding: 20px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.bg-charity-benefits {
+  position: relative;
+  background-image: image-url("bg-charity-problem.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  height: 1500px;
+}
+
+
+#whitebox-charity-benefits {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  color: rgb(51,51,51);
+  z-index: 1;
+}
+
+#charity-solution {
+  border-top: 1px rgba(216,227,225,0.83) solid;
+  border-bottom: 1px rgba(216,227,225,0.23) solid;
+  h2 {
+    color: white;
+    font-weight: 400;
+  }
+}
+
+#charity-benefits {
+  h2 {
+    color: rgb(51,51,51);
+    font-weight: 400;
+  }
+}
+
+#charity-benefit {
+  height: 265px;
+  border-bottom: 2px rgba(181, 181, 181, 0.23) solid;
+  padding-top: 45px;
+  img {
+    height: 165px;
+    float: left;
+  }
+  h3 {
+    color: rgb(51,51,51);
+  }
+}
+
+@media only screen and (max-width: 480px) and (orientation : portrait) {
+  #charity-page {
+    h1 {
+      font-size: 30px;
+    }
+    #cforgood-background {
+      height: 160px;
+    }
+    #charity-banner {
+      height: 180px;
+    }
+    #charity-problem {
+      margin-top: 60px;
+      margin-bottom: 20px;
+      h2 {
+        font-size: 22px;
+      }
+      #icon-charity-problem {
+        margin-bottom: 10px;
+      }
+      #title-charity-problem {
+        margin-bottom: 40px;
+      }
+      #item-charity-problem {
+        margin-bottom: 20px;
+        p strong {
+          font-size: 16px;
+        }
+      }
+    }
+    #charity-benefits {
+      height: 2650px;
+      h3 {
+        font-size: 24px;
+      }
+    }
+    #charity-benefit {
+      border: transparent;
+    }
+    #item-charity-benefit {
+        padding-bottom: 50px;
+        padding-right: 0px;
+        padding-left: 0px;
+        text-align: center;
+      }
+  }
+  #icon-charity-benefit {
+    margin-left: 25%;
+    padding-left: 0px;
+  }
+  #nopadding-left {
+    padding-left: 0px;
+  }
+  #write-us-charity {
+    padding-top: 0px;
+  }
+  #nomobile {
+      display: none;
+    }
+}

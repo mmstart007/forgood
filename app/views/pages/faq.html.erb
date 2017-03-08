@@ -1,0 +1,26 @@
+<% content_for :meta_title, "F.A.Q" %>
+<% content_for :meta_description, "Trouvez toutes les réponses à vos questions" %>
+<% content_for :meta_image %>
+
+<div class="container-fluid">
+  <div class="container-fluid" id="header-cforgood-legal">
+    <div class="row">
+      <div class="page-title" id="page-title-legal">
+        <h1>FAQ</h1>
+        <h2>Des réponses à vos questions</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid bg-legal">
+    <div id="whitebox-legal"></div>
+    <div class="row">
+      <!-- Sub Menu NavBar  -->
+      <%= render "pages/shared/tabs_footer_cforgood" %>
+      <!-- Content -->
+      <div class="col-xs-12 col-sm-6 content-legal">
+        <%= render "pages/shared/faq_content" %>
+        <p id="faq-contact">N'hésitez pas à nous <strong><%= link_to "écrire", new_contact_form_path %></strong> si vous n'avez pas trouvé votre réponse !</p>
+      </div>
+    </div>
+  </div>
+</div>

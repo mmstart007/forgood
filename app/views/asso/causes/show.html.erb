@@ -1,0 +1,140 @@
+<%= content_for(:title) do %>
+  <%= @cause.name %>
+<% end %>
+<%= content_for(:description) do %>
+  Découvrez l'engagement de <%= @cause.name %> !
+<% end %>
+
+<div class="container-fluid admin">
+  <!-- Sub Menu Sidebar -->
+  <%= render "member/dashboard/shared/sidebar" %>
+  <!-- Content - Statistics -->
+  <div class="dashboard dashboard-causes">
+    <div class="mobile-menu-overlay hidden"></div>
+
+    <div id="<%= @cause.id %>" class="cause-container">
+      <div class="cause-header" style="background-image: url('<%= device_type == :mobile ? @cause.picture.url(:card) : @cause.picture %>');">
+        <img class="cause-logo" src="<%= @cause.logo %>" style="border: 3px solid <%= @cause.cause_category.color %>;">
+        <h1><%= @cause.name %></h1>
+        <!-- CTA -->
+        <% if user_signed_in? %>
+          <% if @cause.id == current_user.cause_id %>
+            <div class="love-you">Vous soutenez cette association <%= render 'shared/icons/heart' %></div>
+          <% else %>
+            <button class="user-button">Soutenir cette cause</button>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="cause-content" style="border-top: 3px solid <%= @cause.cause_category.color %>;">
+
+        <div class="cause-category">
+          <div class="disque-item item-category" style="background-color: <%= @cause.cause_category.color %>;">
+              <%= image_tag @cause.cause_category.picture %>
+          </div>
+          <% if @cause.impact.present? %>
+            <span style="background-color: <%= @cause.cause_category.color %>;"><%= @cause.impact %></span>
+          <% else %>
+            <span style="background-color: <%= @cause.cause_category.color %>;"><%= @cause.cause_category.name %></span>
+          <% end %>
+        </div>
+
+        <div class="cause-details">
+          <!-- BUSINESS | DESCRIPTION -->
+          <h2>En savoir plus</h2>
+          <p><%= simple_format(@cause.description) %></p>
+          <!-- BLOCK VIDEO -->
+          <% if @cause.link_video.present? %>
+            <div class="cause-video">
+              <div class="embed-container video-mobile">
+                <%= content_tag(:iframe, nil, src: "#{@cause.link_video}", allowfullscreen: "allowfullscreen") %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="cause-info">
+          <h2>Information</h2>
+          <!-- LINKS | SOCIAL NETWORKS -->
+          <ul class="network">
+            <% if @cause.facebook.present? %>
+              <li style="background-color: <%= @cause.cause_category.color %>;">
+                <a href="https://facebook.com/<%= @cause.facebook %>" class="link-facebook-business business-icon-container" target="_blank">
+                  <i class="fa fa-facebook business-icon"></i>
+                </a>
+              </li>
+            <% end %>
+            <% if @cause.twitter.present? %>
+              <li style="background-color: <%= @cause.cause_category.color %>;">
+                <a href="https://twitter.com/<%= @cause.twitter %>" class="link-instagram-business business-icon-container" target="_blank">
+                  <i class="fa fa-twitter business-icon"></i>
+                </a>
+              </li>
+            <% end %>
+            <% if @cause.instagram.present? %>
+              <li style="background-color: <%= @cause.cause_category.color %>;">
+                <a href="https://instagram.com/<%= @cause.instagram %>" class="link-instagram-business business-icon-container" target="_blank">
+                  <i class="fa fa-instagram business-icon"></i>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+          <!-- LINKS | WEB -->
+          <ul class="direct-contact">
+             <% if @cause.telephone.present? %>
+              <li>
+                <a href="tel:<%= @cause.telephone %>" class="link-website-business business-icon-container" target="_blank" >
+                  <i class="fa fa-phone business-icon" style="border: 1px solid <%= @cause.cause_category.color %>; color: <%= @cause.cause_category.color %>;"></i><span><%= @cause.telephone %></span>
+                </a>
+              </li>
+            <% end %>
+            <% if @cause.email.present? %>
+              <li>
+                <a href="mailto:<%= @cause.email %>" class="link-mail-business business-icon-container" target="_blank">
+                  <i class="fa fa-envelope business-icon" style="border: 1px solid <%= @cause.cause_category.color %>; color: <%= @cause.cause_category.color %>;"></i><span><%= @cause.email %></span>
+                </a>
+              </li>
+            <% end %>
+            <% if @cause.url.present? %>
+              <li>
+                <a href="<%= @cause.url %>" class="link-website-business business-icon-container" target="_blank">
+                  <i class="fa fa-globe business-icon" style="border: 1px solid <%= @cause.cause_category.color %>; color: <%= @cause.cause_category.color %>;"></i><span><%= @cause.url %></span>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+          <!-- INFO | ADRESSE -->
+          <div class="place">
+            <% if @cause.city.present? %>
+              <i class="fa fa-map-marker" style="border: 1px solid <%= @cause.cause_category.color %>; color: <%= @cause.cause_category.color %>;"></i>
+              <span><%= @cause.street %><br><%= @cause.zipcode %> <%= @cause.city %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+  <%= render 'components/popups/cause_validation' %>
+
+
+  <% content_for :after_js do %>
+    <script>
+      $(document).ready(function() {
+        $(".user-button").on("click", function(e) {
+          e.preventDefault;
+          var causeId = $('.cause-container').val('div').attr('id');
+          $(".popup-overlay").toggleClass("hidden");
+          $("#user_cause_id").val(causeId);
+          var causeName = "<%= @cause.name %>";
+          $('.cause-confirmation span.cause-name').html(causeName);
+
+          // EVENT AMPLITUDE : USER_C_CAUSE_SUPPORT
+          amplitude.logEvent('USER_C_CAUSE_SUPPORT');
+        });
+      });
+    </script>
+  <% end %>
+
+<% end %>

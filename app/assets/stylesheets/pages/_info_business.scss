@@ -1,0 +1,121 @@
+#business-page {
+  h2 {
+    color: rgb(51,51,51);
+    font-weight: 400;
+  }
+}
+
+#item-business-problem {
+  img {
+    height: 140px;
+    padding-left: 25px;
+  }
+  h3 {
+    color: rgb(51,51,51);
+    font-size: 22px;
+    font-weight: 400;
+  }
+  h4 {
+    color: rgb(51,51,51);
+  }
+}
+
+#business-solution {
+  border-top: 1px rgba(216,227,225,0.23) solid;
+  border-bottom: 1px rgba(216,227,225,0.23) solid;
+  h2 {
+    color: white;
+    font-weight: 400;
+  }
+}
+
+.bg-business-benefits {
+  position: relative;
+  background-image: image-url("bg-business-benefits.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 1500px;
+}
+
+#whitebox-business-benefits {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  color: rgb(51,51,51);
+  z-index: 1;
+}
+
+#business-benefit {
+  height: 265px;
+  border-bottom: 2px rgba(181, 181, 181, 0.23) solid;
+  padding-top: 45px;
+  img {
+    height: 165px;
+    float: left;
+  }
+  h3 {
+    color: rgb(51,51,51);
+  }
+}
+
+
+
+@media only screen and (max-width: 480px) and (orientation : portrait) {
+  #business-page {
+    h1 {
+      font-size: 30px;
+    }
+    #cforgood-background {
+      height: 160px;
+      h3 {
+        font-size: 24px;
+      }
+    }
+    #business-problem {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      h2 {
+        font-size: 22px;
+      }
+      #title-business-problem {
+        margin-bottom: 30px;
+      }
+      #item-business-problem {
+        margin-bottom: 30px;
+      }
+  }
+  #business-benefits {
+    height: 2450px;
+    h3 {
+        font-size: 24px;
+      }
+  }
+  #business-benefit {
+    border: transparent;
+  }
+  #item-business-benefit {
+      padding-bottom: 50px;
+      padding-right: 0px;
+      padding-left: 0px;
+      text-align: center;
+  }
+  }
+  #icon-business-benefit {
+    margin-left: 25% !important;
+    padding-left: 0px;
+  }
+  #write-us-business {
+    padding-top: 0px;
+  }
+  #nomobile {
+      display: none;
+    }
+}
+
+@media only screen and (min-width: 480px) and (orientation : portrait) {
+  #nodesktop {
+      display: none;
+    }
+}
