@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # ROOT TO LANDING WEBSITE
   if Rails.env.development?
     devise_scope :user do
-      root to: 'devise/sessions#new'
+      root to: 'member/dashboard#dashboard'
     end
   else
     root to: redirect("http://cforgood.com")
